@@ -1,0 +1,33 @@
+<header class="header">
+  <div>{{ user.login }}</div>
+  <button mat-stroked-button (click)="logout()" type="button">Выйти</button>
+</header>
+<main class="document">
+  <h1>{{ isConfirmed ? "Результаты утверждения" : document.title }}</h1>
+  <ng-container *ngIf="document && !isConfirmed">
+    <p>{{ document.text }}</p>
+
+    <form [formGroup]="form" class="document__form">
+      <mat-form-field class="document__field">
+        <mat-select placeholder="Резолюция" formControlName="resolution">
+          <mat-option *ngFor="let resolution of resolutions" [value]="resolution.code">
+            {{ resolution.text }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="document__field">
+        <input matInput placeholder="Коментарий" formControlName="comment" autocomplete="off">
+      </mat-form-field>
+    </form>
+
+    <div class="document__buttons">
+      <button mat-stroked-button (click)="submit(state.approve)">Утвердить</button>
+      <button mat-stroked-button color="warn" (click)="submit(state.reject)">Отклонить</button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isConfirmed">
+    <p class="document__result">{{ confirmationText }}</p>
+  </ng-container>
+</main>

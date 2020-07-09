@@ -1,0 +1,28 @@
+dist: xenial
+sudo: false
+
+language: node_js
+node_js:
+  - "10"
+
+branches:
+  only:
+  - master
+
+cache:
+  directories:
+    - ./node_modules
+
+install:
+  - npm install
+
+script: 
+  - ng build --prod --base-href https://sharabanovaav.github.io/documents-approver/
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  local_dir: dist/documents-approver
+  on:
+    branch: master

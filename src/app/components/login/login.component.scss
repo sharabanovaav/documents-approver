@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(68, 145, 68);
+}
+
+.login {
+  width: 300px;
+  padding: 40px 20px;
+  border: 1px solid gainsboro;
+  border-radius: 4px;
+  background: white;
+
+  &__field {
+    width: 100%;
+  }
+
+  &__button {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  &__error {
+    color: red;
+  }
+}

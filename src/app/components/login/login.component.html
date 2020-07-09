@@ -1,0 +1,15 @@
+<div class="login">
+  <form [formGroup]="form" class="login__form">
+    <mat-form-field class="login__field">
+      <input matInput placeholder="Логин" formControlName="login" type="text">
+    </mat-form-field>
+
+    <mat-form-field class="login__field">
+      <input matInput placeholder="Пароль" formControlName="password" type="password">
+    </mat-form-field>
+  </form>
+
+  <div *ngIf="isShowError" class="login__error">Неверный логин или пароль</div>
+
+  <button class="login__button" (click)="submit()" mat-stroked-button color="primary">Войти</button>
+</div>

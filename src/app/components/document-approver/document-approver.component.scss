@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+
+  &>* {
+    margin: 0 20px;
+  }
+}
+
+.document {
+  max-width: 650px;
+  margin: auto;
+  padding: 30px;
+
+  &__form {
+    margin-top: 30px;
+  }
+
+  &__field {
+    margin-right: 20px;
+  }
+
+  &__buttons > * {
+    margin: 0 10px 10px 0;
+  }
+
+  &__result {
+    font-size: 17px;
+  }
+}
